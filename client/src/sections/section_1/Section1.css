@@ -1,0 +1,53 @@
+*{
+    --DRK_BROWN: #38201F;
+    --Light_YELLOW:#FFF6A4;
+}
+  
+
+
+.section-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-1 img{
+    margin-right: 2rem;
+}
+
+.sec-1-text-stack{
+    color: var(--Light_YELLOW);
+    text-align: left;
+    position: relative;
+    top: 1rem;
+}
+
+.main-text{
+    font-size: clamp(1rem, 10vw, 7rem);;
+    font-family: 'gothic'
+}
+
+.sec-1-text-stack .row-2{
+    font-family: 'robo-bold';
+}
+
+.sec-1-text-stack .row-3{
+    font-family: 'robo-regular';
+
+    margin-top: .5rem;
+}
+
+.hollar-btn{
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 1.5rem;
+    font-family: 'robo-bold';
+    color: var(--DRK_BROWN);
+    font-size: 1.1rem;
+    background-color: #FFF6A4;
+    outline: none;
+    border: none;
+    margin-top: 1rem;
+}

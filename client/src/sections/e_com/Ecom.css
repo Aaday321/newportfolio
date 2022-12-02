@@ -1,0 +1,49 @@
+.e-com-inner{
+    background-color: #FFF9C6;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.cart{
+    width: 15rem;
+    height: 15rem;
+    background-color: white;
+}
+
+.e-com-inner-left, .e-com-inner-right{
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    align-items: center;
+}
+
+.color{
+    height: 5rem;
+    width: 5rem;
+    display: grid;
+    place-content: center;
+    border-radius: 15px;
+    margin-inline: 20px;
+    transition: 400ms;
+    color: #FFF9C6;
+}
+.color:hover{
+    border-radius: 12px;
+    cursor: pointer;
+}
+.color p{
+    user-select: none;
+}
+
+.WOW{
+    height: 15rem;
+    width: 5rem;
+    background-color: aqua;
+}
+
+.WOW:nth-child(odd){
+    background-color: antiquewhite;
+    display: none;
+}

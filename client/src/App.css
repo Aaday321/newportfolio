@@ -1,0 +1,120 @@
+*{
+  --DRK_BROWN: #38201F;
+  --Light_YELLOW:#FFF6A4;
+  --DEEP_YELLOW:#FFF6A4;
+  --CREAM:#FFF9C6;
+  --LIGHT_BROWN:#95816C;
+}
+*{
+  margin: 0;
+  font-family: 'robo-regular';
+}
+*:focus{
+  outline: none;
+}
+button:hover{
+  cursor: pointer;
+}
+@font-face {
+  font-family: 'robo-bold';
+  src:  url('./assets/fonts/Chakra_Petch/ChakraPetch-Bold.ttf');
+}
+@font-face {
+  font-family: 'robo-semi-bold';
+  src:  url('./assets/fonts/Chakra_Petch/ChakraPetch-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'robo-regular';
+  src:  url('./assets/fonts/Chakra_Petch/ChakraPetch-Regular.ttf');
+}
+@font-face {
+  font-family: 'gothic';
+  src:  url('./assets/fonts/gothicb.ttf');
+}
+
+#root {
+  text-align: center;
+}
+
+body{
+  position: fixed;
+  top: 0;
+  left: 0;
+
+}
+
+.ade{
+  font-family: 'gothic';
+  color: var(--Light_YELLOW);
+  font-size: 3rem;
+}
+
+.home_page{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--DRK_BROWN);
+  overflow-y: scroll;
+
+  overflow-x: hidden;
+}
+
+.home_page nav{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+nav h3, nav svg{
+  padding-inline: 2rem;
+  padding-top: 1rem;
+}
+
+.key-skills{
+  background-color: #705747;
+  width: 100vw;
+  height: auto;
+  font-size: 4rem;
+  padding: 1rem;
+  font-family: 'robo-bold';
+  margin-top: 3rem;
+  color: var(--Light_YELLOW);
+}
+
+.section-header{
+  display: flex;
+  text-align: left;
+  align-items: center;
+  padding: 3rem;
+  width: 100%;
+}
+
+.section-header h1{
+  font-family: 'gothic';
+  margin-left: 4rem;
+  font-size: 4rem;
+}
+
+.section-header h2{
+  font-family: 'robo-regular';
+  margin-left: 1rem;
+
+}
+/* width */
+::-webkit-scrollbar {
+  width: 0
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+}
