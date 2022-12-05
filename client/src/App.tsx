@@ -5,6 +5,7 @@ import './App.css'
 import Menu_sym from './assets/SVG_COMPS/Menu_sym'
 import Section_2 from './sections/section_2/Section_2'
 import E_COM from './sections/e_com/E_COM'
+import MoGo from './sections/mogo/MoGo'
 
 function App() {
   
@@ -26,6 +27,7 @@ function App() {
       </div>
       <Section_2/>
       <E_COM/>
+      <MoGo/>
     </div>
   )
 }

@@ -2,18 +2,34 @@ import React, {useState, useEffect, useRef, createRef} from 'react'
 import Section_Header from '../Section_Header'
 import axios from 'axios'
 import { SERVER_ROUTE } from '../../assets/exportables'
-import lottie from 'lottie-web'
-import menuAnimation from '../../assets/data.json'
 import './Ecom.css'
 
 function E_COM() {
-    const obj:any = {}
+
+    
+    let nullish:any = null
     const placeHolderArray:any[] = []
-    const [price, setPrice] = useState(1)
+    const [total, setTotal] = useState(0)
     const [storeItems, setStoreItems] = useState([])
     const [cartItems, setCartItems] = useState(placeHolderArray)
-    const [loadedOnce, setLoadedOnce] = useState(0)
-    const [myLottie, setMyLottie] = useState(obj)
+    
+    const getCount = (item:any):number =>{
+        let count: number = 0
+        for(let i of cartItems)if(i==item)count++
+        return count
+    }
+
+    const displayCartItems = ():Array<any> => {
+        let returnableArray: Array<any> = new Array()
+        for(let i of cartItems)if(!returnableArray.includes(i))returnableArray.push(i)
+        return returnableArray
+    }
+
+    const getTotal = ():number =>{
+        let cartTotal:number = 0
+        for(let i of cartItems)cartTotal += i.itemPrice
+        return Math.floor(cartTotal)*0.01
+    }
 
     const displayPrice = (price: number):string => `$${price*0.01}`
 
@@ -24,37 +40,19 @@ function E_COM() {
             .then((r)=>setStoreItems(r.data))
     }
 
-    const inc = ():string =>{
-        if(!loadedOnce){
-            setTimeout(()=>setLoadedOnce((c)=>c+1),0)
-            
-            return "one"
-        }else return 'two'
-    }
 
-    let animationContainer:any = createRef()
 
     useEffect(fillStore,[])
 
-    useEffect(()=>console.log(cartItems),[cartItems])
+    //Update Total
+    useEffect(()=>setTotal(getTotal()),[cartItems])
 
-    useEffect(():any=>
-    {
-        setMyLottie(lottie.loadAnimation({
-            container: animationContainer?.current,
-            animationData: menuAnimation,
-            autoplay: false
-        }))
-        animationContainer = null
-    },[])
 
-    return(
-        <div onClick={()=>myLottie.play()} className={'WOW'} ref={animationContainer ? animationContainer : ''}>
-        </div>
-    )
-
+ 
   return (
     <>
+        
+
         <Section_Header
             sectionTitle={<>E-Commerce</>}
             sectionNumber={2}
@@ -86,23 +84,23 @@ function E_COM() {
                 <div className="cart">
                     <>
                     {
-                        cartItems.map((item, index)=>(
-                        
+                        displayCartItems().map((item, index)=>(        
                             <div className="item" key={index}>
-                                
-                        <div
-                            className="color"
-                            style={{backgroundColor: item.itemColor}}
-                        >
-                            <p className="label">{item.itemName}</p>
-                        </div>  
-                        <p className="price" style={{color: item.itemColor}}>
-                            {displayPrice(item.itemPrice)}
-                        </p>
-                    </div>
+                                <div
+                                    className="color"
+                                    style={{backgroundColor: item.itemColor}}
+                                >
+                                    <p className="label">{item.itemName}</p>
+                                </div>  
+                                <p className="price" style={{color: item.itemColor}}>
+                                    {displayPrice(item.itemPrice)} x{getCount(item)} 
+                                </p>
+                            </div>
                         ))
                     }
                     </>
+                    <div className="total-row">Total: ${total}</div>
+                    <div className="gold-base"></div>
                 </div>
             </div>
         </div>

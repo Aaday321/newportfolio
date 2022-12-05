@@ -1,0 +1,33 @@
+*{
+    --DRK_BROWN: #38201F;
+    --Light_YELLOW:#FFF6A4;
+    --DEEP_YELLOW:#FFF6A4;
+    --CREAM:#FFF9C6;
+    --LIGHT_BROWN:#95816C;
+    --RED_BROWN:#624a3f;
+  }
+
+
+.section-mogo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    transition: 2s;
+}
+
+.extra-div{
+    width:100%
+}
+
+
+.menu-btn:hover, .dark-toggle:hover{
+    cursor: pointer;
+}
+
+.menu-btn{
+    overflow: hidden;
+    height: 100px;
+}
+.menu-btn svg{
+    height: 400px;
+}

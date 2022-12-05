@@ -1,3 +1,12 @@
+*{
+    --DRK_BROWN: #38201F;
+    --Light_YELLOW:#FFF6A4;
+    --DEEP_YELLOW:#FFF6A4;
+    --CREAM:#FFF9C6;
+    --LIGHT_BROWN:#95816C;
+    --REG-BROWN:#4F3130;
+    --GOLD:#FFEA2B;
+  }
 .e-com-inner{
     background-color: #FFF9C6;
     width: 100%;
@@ -7,11 +16,40 @@
 }
 
 .cart{
-    width: 15rem;
-    height: 15rem;
+    width: 18rem;
+    height: 30rem;
+    margin-block: 5rem;
+    border: 8px solid var(--REG-BROWN);
+    border-bottom: none;
+    border-radius: 30px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
 }
-
+.cart .item{
+    display: flex;
+    align-items: center;
+    margin-block: .5rem;
+}
+.total-row{
+    margin-top: auto;
+    height: 3rem;
+    width: 100%;
+    background-color: var(--REG-BROWN);
+    color: var(--GOLD);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gold-base{
+    height: 1.5rem;
+    width: 100%;
+    margin-left: -8px;
+    background-color: var(--GOLD);
+    border: 8px solid var(--GOLD);
+    border-radius: 0 0 30px 30px;
+}
 .e-com-inner-left, .e-com-inner-right{
     display: flex;
     justify-content: center;

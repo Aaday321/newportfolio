@@ -89,6 +89,7 @@ nav h3, nav svg{
   align-items: center;
   padding: 3rem;
   width: 100%;
+  transition: 2s;
 }
 
 .section-header h1{

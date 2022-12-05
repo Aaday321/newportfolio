@@ -14,6 +14,9 @@ import { motion } from 'framer-motion';
 import addSound from '../../assets/addSound.wav';
 import deleteSound from '../../assets/deleteSound.wav';
 
+const ALREADY_SIGNED_IN = "You're already signed in"
+const NO_INPUT = 'Type in a username and password'
+
 function Section_2() {
   const [display, setDisplay] = useState("flex");
   const [username, setUsername] = useState("")
@@ -96,7 +99,7 @@ function Section_2() {
   }
 
   const createNewUser = ():void => {
-    if(activeUser)return
+    if(activeUser){ setMessage(ALREADY_SIGNED_IN); return }
     if(username && password){
       axios.post(`${SERVER_ROUTE}/users`, {
         action: 'create_user',
@@ -105,11 +108,11 @@ function Section_2() {
       })
         .then((r):void =>logInProtocall(r))
         .catch((r):void =>setMessage(r.response.data))
-    }
+    }else{ setMessage(NO_INPUT); return }
   }
 
   const logIn = ():void => {
-    if(activeUser)return
+    if(activeUser){ setMessage(ALREADY_SIGNED_IN); return }
     if(username && password){
       axios.post(`${SERVER_ROUTE}/users`,{
         action: 'login',
@@ -118,7 +121,7 @@ function Section_2() {
       })
         .then((r):void =>logInProtocall(r))
         .catch((r):void =>setMessage(r?.response?.data))
-    }
+    }else setMessage(NO_INPUT)
   }
 
   const logOut = ():void => {
