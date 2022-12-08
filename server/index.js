@@ -5,8 +5,10 @@ import cors from "cors"
 import { handlePost as handleUserPost } from './controllers/userControllers'
 import { provideStoreItems } from "./controllers/storeControllers"
 import { handlePost as handleStorePost } from "./controllers/storeControllers"
+import dotenv from 'dotenv'
 
-//const prompt = require('prompt-sync')({});
+dotenv.config()
+
 
 
 const app = new express()

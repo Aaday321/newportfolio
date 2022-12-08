@@ -156,8 +156,8 @@ function Section_2() {
           </>
         }
         sectionNumber={1}
-        background=
-          "linear-gradient(99.65deg, #FFEA28 10.73%, #FFF59C 104.98%)"
+        background= {'var(--SOFT_COLOR)' ||
+          "linear-gradient(99.65deg, #FFEA28 10.73%, #FFF59C 104.98%)"}
       />
       <div className="section-2-inner">
 
@@ -166,13 +166,14 @@ function Section_2() {
             className="create-user"
             onClick={createNewUser}
           >
-            <New_User_sym color={APP_COLORS.CREAM} />
+            <New_User_sym color='var(--BLACK)' />
             Create user
           </button>
 
           <input
             className="log-input"
             type="text"
+            disabled={!!activeUser}
             value={username}
             onChange={(e):void=>handleChange(e, "Username")}
             placeholder="Username"
@@ -183,6 +184,7 @@ function Section_2() {
             type="password"
             style={pwStyle}
             value={password}
+            disabled={!!activeUser}
             onChange={(e):void=>handleChange(e, "password")}
             placeholder="Password"
           />
@@ -201,7 +203,7 @@ function Section_2() {
           <div className="inner">
               
             <div className="locked" style={{display:display}}>
-                <Lock_sym/>
+                <Lock_sym color="var(--WHITE)"/>
             </div>
 
             <form className="data-form" onSubmit={(e):void=>submitUserInput(e)}>
@@ -215,7 +217,7 @@ function Section_2() {
                             animate={{y:0}}
                           >
                             {item}
-                            <div onClick={():void =>deleteItem(item)}><X_Cir_sym/></div>
+                            <div onClick={():void =>deleteItem(item)}><X_Cir_sym color="var(--ACENT)"/></div>
                           </motion.li>
                       ))}
                     </ul>
@@ -227,7 +229,7 @@ function Section_2() {
                       value={userInput}
                       placeholder='Enter some text'
                     />
-                    <div onClick={(e):void=>submitUserInput(e)}><Arrow_Cir_sym /></div>
+                    <div onClick={(e):void=>submitUserInput(e)}><Arrow_Cir_sym color='var(--WHITE)'/></div>
                 </div>
             </form>
 

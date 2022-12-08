@@ -1,4 +1,4 @@
-import React, {useState, createRef, useEffect} from 'react'
+import React, {useState, createRef, useEffect, useRef} from 'react'
 import Section_Header from '../Section_Header'
 import lottie from 'lottie-web'
 import menuAnimation from '../../assets/data.json'
@@ -7,8 +7,8 @@ import './MoGo.css'
 
 function MoGo() {
     let Menu: any = null;
-    let ref:any = createRef()
-    let toggleRef:any = createRef()
+    let ref:any = useRef()
+    let toggleRef:any = useRef()
     const [background, setBackground] = useState('white')
     const [textColor, setTextColor] = useState('black')
     const [menu, setMenu] = useState(Menu)
@@ -32,24 +32,22 @@ function MoGo() {
                 container: toggleRef?.current,
                 animationData: toggleAnimation,
                 autoplay: false,
-                loop:false
+                loop:false,
             }))
             toggleRef = null
         }
     },[])
 
     useEffect(()=>{
-        if(dark == 'dark'){setBackground('#222222'); setTextColor('white')}
-        else {setBackground('#e8d3bc'); setTextColor('black')}
+        if(dark == 'dark'){ setBackground('var(--ACENT)'); setTextColor('white') }
+        else {  setBackground('var(--SOFT_COLOR)'); setTextColor('black') }
     },[dark])
     
-
-//setInterval(()=>console.log(toggle?.currentFrame),1000)
 
   return (
     <>
         <Section_Header
-            sectionTitle={<>Motion Graphics x Web Design</>}
+            sectionTitle={<>Web Design x<br/>Motion Graphics</>}
             sectionNumber={3}
             background={background}
             textColor={textColor}

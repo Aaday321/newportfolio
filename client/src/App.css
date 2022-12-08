@@ -1,16 +1,23 @@
 *{
-  --DRK_BROWN: #38201F;
-  --Light_YELLOW:#FFF6A4;
-  --DEEP_YELLOW:#FFF6A4;
-  --CREAM:#FFF9C6;
-  --LIGHT_BROWN:#95816C;
-}
-*{
   margin: 0;
+  padding: 0;
   font-family: 'robo-regular';
+  box-sizing: border-box;
+}
+body{
+  --WHITE: #ffffff;
+  --SOFT_COLOR: #D1E9FF;
+  --PRIMARY: #1579D7;
+  --ACENT: #114F87;
+  --MEDIUM: #B4DBFF;
+  --BLACK: black;
+  --APP_GREY: #E7E7E7;
 }
 *:focus{
   outline: none;
+}
+ul{
+  list-style: none;
 }
 button:hover{
   cursor: pointer;
@@ -43,9 +50,18 @@ body{
 
 }
 
+.layover{
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  position: fixed;
+  opacity:0.4;
+}
+
 .ade{
   font-family: 'gothic';
-  color: var(--Light_YELLOW);
+  color: var(--SOFT_COLOR);
   font-size: 3rem;
 }
 
@@ -56,7 +72,8 @@ body{
   flex-direction: column;
   width: 100vw;
   height: 100vh;
-  background-color: var(--DRK_BROWN);
+  
+  background-color: #1579D7;
   overflow-y: scroll;
 
   overflow-x: hidden;
@@ -67,27 +84,55 @@ body{
   width: 100%;
   justify-content: space-between;
 }
-nav h3, nav svg{
-  padding-inline: 2rem;
-  padding-top: 1rem;
+nav h3, nav .menu-sym{
+  margin-inline: 2rem;
+  margin-top: 1rem;
 }
 
+
 .key-skills{
-  background-color: #705747;
+  background-color: var(--SOFT_COLOR);
   width: 100vw;
   height: auto;
-  font-size: 4rem;
-  padding: 1rem;
+  font-size: 2rem;
+
+  padding: 8rem 0 6rem 10rem;
+
   font-family: 'robo-bold';
-  margin-top: 3rem;
-  color: var(--Light_YELLOW);
+  margin-top: 5rem;
+  color: var(--PRIMARY);
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+#key-p::after{
+  content:'';
+  width: 60rem;
+  height: 3px;
+  background-color: var(--PRIMARY);
+  display: inline-block;
+  position: absolute;
+  bottom: 5rem;
+  left: 9rem;
+}
+
+.key-underline{
+  height: 3px;
+  width: 50rem;
+  margin-left: -1rem;
+  padding-right: 5rem;
+  margin-top:1rem;
+  background-color: var(--PRIMARY);;
 }
 
 .section-header{
   display: flex;
   text-align: left;
   align-items: center;
-  padding: 3rem;
+  padding-top: 3rem;
+  padding-left: 3rem;
   width: 100%;
   transition: 2s;
 }
@@ -96,26 +141,18 @@ nav h3, nav svg{
   font-family: 'gothic';
   margin-left: 4rem;
   font-size: 4rem;
+  padding-right: 1rem;
+  transition: 2s;
 }
 
 .section-header h2{
   font-family: 'robo-regular';
   margin-left: 1rem;
-
-}
-/* width */
-::-webkit-scrollbar {
-  width: 0
+  transition: 2s;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+@media (max-width: 1000px) {
+  .section-1{
+    flex-direction: column;
+  }
 }

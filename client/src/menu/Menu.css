@@ -1,0 +1,48 @@
+.menu{
+    background-color: var(--WHITE);
+    height: 100vh;
+    position: fixed;
+    max-width: 400px;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    padding-top: 8rem;
+    z-index: 2;
+    box-shadow: 0 0 20px #000000aa;
+}
+
+.menu-sym{
+    z-index: 3;
+    padding-top: 3px;
+    cursor: pointer;
+}
+
+.menu-sym svg{
+    cursor: pointer;
+}
+
+.menu .menu-inner{
+    width: 100%;
+    text-align: right;
+}
+
+.menu-inner h4{
+    margin-left: auto;
+    font-family: 'robo-regular';
+    font-size: 2rem;
+    /* border-bottom: 4px solid var(--BLACK); */
+    padding-bottom: 3px;
+    margin-bottom: 2rem;
+    margin-right: 5rem;
+}
+
+a{
+    text-decoration: none;
+    font-size: 20px;
+    color: var(--PRIMARY);
+}
+.project-item{
+    margin-right: 5rem;
+    margin-block: 1.5rem;
+}

@@ -27,8 +27,8 @@ function Section_Header({
         className="section-header"
         style={styles}    
     >
-        <h1 className="section-number" style={{color:textColor || 'black'}}>
-            {`${sectionNumber}.`}
+        <h1  className="section-number" style={{color:textColor || 'black', borderRight: `2px solid ${textColor || 'black'}` }}>
+            {`${sectionNumber}`}
         </h1>
         <h2 className="section-title" style={{color:textColor || 'black'}}>
             {sectionTitle}

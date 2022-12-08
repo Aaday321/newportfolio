@@ -13,6 +13,9 @@ export const storeItemSchema = new mongoose.Schema({
     itemPrice:{
         type: Number
     },
+    quantity:{
+        type: Number
+    },
     createdDate: {
         type: Date,
         default: Date.now
