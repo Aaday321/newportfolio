@@ -2,7 +2,7 @@ import React, {useState, createRef, useEffect, useRef} from 'react'
 import Section_Header from '../Section_Header'
 import lottie from 'lottie-web'
 import menuAnimation from '../../assets/data.json'
-import toggleAnimation from '../../assets/data2.json'
+import toggleAnimation from '../../assets/day-night_3.json'
 import './MoGo.css'
 
 function MoGo() {
@@ -25,6 +25,7 @@ function MoGo() {
                 autoplay: false,
                 loop:false
             }))
+            
             ref = null
         }
         if(toggleRef?.current){
@@ -34,9 +35,15 @@ function MoGo() {
                 autoplay: false,
                 loop:false,
             }))
+            
             toggleRef = null
         }
     },[])
+
+
+
+
+    // useEffect([toggle])
 
     useEffect(()=>{
         if(dark == 'dark'){ setBackground('var(--ACENT)'); setTextColor('white') }
@@ -54,9 +61,8 @@ function MoGo() {
         />
         <div className="extra-div">
         <div className="section-mogo" style={{backgroundColor: background}}>
-        <div
+        <div className="lottie-div"><div
             className='menu-btn'
-            style={{height:400, width:400, position:'relative', top:55, color:'white'}}
             ref={animationContainer} 
             onClick={()=>{
                     if(open === 'closed'){
@@ -64,37 +70,30 @@ function MoGo() {
                         menu.playSegments([menu.currentFrame,119], true);
                     }else if(open === 'open'){
                         setOpen('closed')
-                        menu.playSegments([menu.currentFrame,15], true);
+                        menu.playSegments([menu.currentFrame,22], true);
                     }
             }}
         >
         
 
-        </div>
+        </div></div>
+        <div className="lottie-div">
         <div
             className='dark-toggle'
-            style={{height:500, width:500, color:'white'}}
+            style={{color:'white'}}
             ref={toggleRef} 
             onClick={()=>{
-                    if(dark === 'light' && toggle.currentFrame > 170){
-                        console.log(1);
-                        setDark('dark')
-                        toggle.playSegments([170,80], true);
-                    }else if(dark === 'dark'&& toggle.currentFrame < 80){
-                        console.log(2);
-                        setDark('light')
+                setDark((currentDark)=>{
+                    if(currentDark === 'dark'){
                         toggle.playSegments([80,170], true);
-                    }else if(dark == 'light'){
-                        setDark('dark')
-                        toggle.playSegments([170,80], true);
-                        console.log(3);
-                    }else if(dark == 'dark'){
-                        console.log(4);                        
-                        setDark('light')
-                        toggle.playSegments([80, 170], true);
+                        return 'light'
+                    }else{
+                        toggle.playSegments([130,60], true);
+                        return 'dark'
                     }
+                })
             }}
-        ></div>
+        ></div></div>
         
         </div>
         {/* <div className="info-popup" style={{height:300, width: '100%',

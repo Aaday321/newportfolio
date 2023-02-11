@@ -2,7 +2,7 @@ import React, {useState, useEffect, useRef, createRef} from 'react'
 import Section_Header from '../Section_Header'
 import axios from 'axios'
 import { SERVER_ROUTE } from '../../assets/exportables'
-import './Ecom.css'
+//import './Ecom.css'
 import Dinero from 'dinero.js'
 import X_Cir_sym from '../../assets/SVG_COMPS/X_Cir_sym'
 import low from '../../assets/STORE_LOW_SFX.wav'
@@ -17,9 +17,35 @@ function E_COM() {
     let nullish:any = null
     const placeHolderArray:any[] = []
     const [total, setTotal] = useState(0)
-    const [storeItems, setStoreItems] = useState([])
+   
     const [cartItems, setCartItems] = useState(placeHolderArray)
     const [justClicked, setJustClicked] = React.useState<any>(null)
+
+    const storeItemsC = [
+        {
+
+            _id: '6395619430b49b7290f8e6c7',
+            itemName:
+                "A",
+            itemColor:
+                "N/A",
+            itemPrice:
+                50
+        },
+        {
+            _id: '639561e030b49b7290f8e6c9',
+            itemName: "D",
+            itemColor: "N/A",
+            itemPrice: 100,
+        },
+        {
+            _id:'639561ec30b49b7290f8e6cb',
+            itemName: "E",
+            itemColor: "N/A",
+            itemPrice: 150
+        }
+    ]
+    const [storeItems, setStoreItemsC] = useState(storeItemsC)
     
     const getCount = (item:any):number =>{
         let count: number = 0
@@ -45,18 +71,20 @@ function E_COM() {
 
         setJustClicked(source)
 
-        setTimeout(()=>setJustClicked(false),100)
-         switch(source){
+        setTimeout(()=>setJustClicked(false),110)
+         /*switch(source){
             case 'A': new Audio(high).play(); break;
             case 'D': new Audio(med).play(); break;
             case 'E': new Audio(low).play(); break;
-        }
+        }*/
+        
         setCartItems((current)=>[...current, item])
     }
 
     const fillStore = ():void => {
         axios.get(`${SERVER_ROUTE}/store-items`)
-            .then((r)=>setStoreItems(r.data))
+            .then((r)=>{})
+            .catch((r)=>console.log('CATCH', r))
     }
 
     const purchaseItems = ():void => {
@@ -79,15 +107,22 @@ function E_COM() {
     }
 
     useEffect(fillStore,[])
+   // useEffect(()=>console.log(justClicked),[justClicked])
+    useEffect(()=>{
+        //console.log(storeItems.map)
+        //console.log(storeItems)
+    },[storeItems])
 
-    //Update Total
+
+    //Update Total 
     useEffect(()=>setTotal(getTotal()),[cartItems])
 
     const justClickedFunc = (source:string):any => {
-        switch(justClicked){
-            case 'A': return source == justClicked && {scale: 1.05}
-            case 'D': return source == justClicked && {scale: 1.05}
-            case 'E': return source == justClicked && {scale: 1.05}
+        const scale: number = 0.9
+        switch(justClicked){    
+            case 'A': return source == justClicked && {scale}
+            case 'D': return source == justClicked && {scale}
+            case 'E': return source == justClicked && {scale}
         }
     }
  
@@ -96,7 +131,7 @@ function E_COM() {
         
 
         <Section_Header
-            sectionTitle={<>E-Commerce &<br/>Secure checkout</>}
+            sectionTitle={<>E-Commerce &<br/>Secure Checkout</>}
             sectionNumber={2}
             background = { 'var(--MEDIUM)'||
             'linear-gradient(99.65deg, #FFF6A4 10.73%, #FFF383 104.98%)'}
@@ -132,19 +167,21 @@ function E_COM() {
                     <ul style={{display: !!(cartItems.length) ? 'block' : 'grid'}}>
                     {   !!(cartItems.length) ? 
                         displayCartItems().map((item, index)=>(        
-                            <motion.li className="cart-item" key={index} initial={{scale:0.9}}
-                            animate={justClicked ? justClickedFunc(item.itemName) : {scale: 1}}>
-                                    <div
+                            <li className="cart-item" key={index} >
+                                    <motion.div
+                                        animate={justClicked ? justClickedFunc(item.itemName) : {scale: 1}}
+                                        transition={{ duration: 0.01, delay:0}}
                                         className="color"
+                                        
                                         style={{backgroundColor: 'var(--PRIMARY)'}}
                                     >
                                         <p className="label">{item.itemName}</p>
-                                    </div>  
+                                    </motion.div>  
                                     <p className="price" style={{color: 'var(--BLACK)'}}>
                                         {displayPrice(item.itemPrice)} x{getCount(item)} 
                                     </p>
                                     <div onClick={()=>{
-                                        new Audio(deleteSound).play()
+                                        //new Audio(deleteSound).play()
                                         setCartItems((currentItems)=>currentItems.filter((cItem)=>cItem != item))
                                     }}
                                     className="cart-x"><X_Cir_sym color='var(--ACENT)'/></div>
@@ -152,7 +189,7 @@ function E_COM() {
                                     !!(index+1 - displayCartItems()?.length) && //won't display on last item
                                     <div className='cart-line'></div>
                                  */}
-                            </motion.li>
+                            </li>
                         ))
                         :
                         'Cart is empty'

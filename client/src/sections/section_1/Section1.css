@@ -4,12 +4,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2rem;
 }
 
 .section-1 img{
     margin-right: 2rem;
     position: relative;
     top: -28px;
+    width: 43vw;
 }
 
 .sec-1-text-stack{
@@ -20,7 +22,7 @@
 }
 
 .main-text{
-    font-size: clamp(1rem, 10vw, 7rem);;
+    font-size: 7.5vw;
     font-family: 'gothic';
     line-height: 1;
 }
@@ -32,7 +34,6 @@
 
 .sec-1-text-stack .row-3{
     font-family: 'robo-regular';
-
     margin-top: .5rem;
 }
 .row-3{
@@ -54,3 +55,4 @@
     border: none;
     margin-top: 1rem;
 }
+

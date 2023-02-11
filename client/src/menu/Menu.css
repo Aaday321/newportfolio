@@ -2,7 +2,7 @@
     background-color: var(--WHITE);
     height: 100vh;
     position: fixed;
-    max-width: 400px;
+    width: 400px;
     top: 0;
     right: 0;
     display: flex;
@@ -14,8 +14,15 @@
 
 .menu-sym{
     z-index: 3;
-    padding-top: 3px;
+    padding-top: 7px;
     cursor: pointer;
+    width: 75px;
+    position: relative;
+    right: -9px;
+}
+.menu ul{
+    margin-top: -30px;
+    overflow-y: auto;
 }
 
 .menu-sym svg{
@@ -33,8 +40,8 @@
     font-size: 2rem;
     /* border-bottom: 4px solid var(--BLACK); */
     padding-bottom: 3px;
-    margin-bottom: 2rem;
     margin-right: 5rem;
+    margin-bottom: 2rem;
 }
 
 a{
@@ -46,3 +53,4 @@ a{
     margin-right: 5rem;
     margin-block: 1.5rem;
 }
+

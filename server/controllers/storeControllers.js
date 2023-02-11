@@ -20,11 +20,18 @@ export const handlePost = (req, res) => {
 
     switch(requestBody.action){ 
         case 'make-new-item':{
+            console.log(requestBody);
+            //res.send('coo');
+            
             new StoreItem({
                 itemName: requestBody.itemName,
                 itemColor: requestBody.itemColor,
                 itemPrice: requestBody.itemPrice
-            }).save((err, storeItem)=>res.send(`Store item: '${storeItem.itemName}' posted`))
+            }).save((err, storeItem)=>{
+                if(err) res.send(err);
+
+                else res.send(`Store item: '${storeItem}' posted`)
+            })
             break;
         }
 
@@ -63,7 +70,7 @@ export const handlePost = (req, res) => {
                                 quantity: item.quantity
                             }
                             )),
-                            success_url:'https://www.google.com',
+                            success_url:`${process.env.CLIENT_URL}`,
                             cancel_url:`${process.env.CLIENT_URL}`
                             
                         }).then((session)=>res.send(session.url))

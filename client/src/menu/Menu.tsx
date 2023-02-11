@@ -22,7 +22,6 @@ function Menu({MenuPackage}:MENU_PROPS) {
     ['Free Jac Nation','https://www.freejacnation.com/'],
     ['Malover Troye','https://www.malovertroye.com/'],
     ['California TRANScends', 'https://www.catranscends.com/'],
-    ['Simple Weather App','https://subtle-cupcake-13ab37.netlify.app/'],
     ['Queen Sheba','https://www.queenshebas.com/'],
     ['Experience M86','https://www.experiencem86.com/'],
   ])

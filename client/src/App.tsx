@@ -13,6 +13,8 @@ import lottie from 'lottie-web'
 import {motion} from 'framer-motion'
 import Pop_up from './sections/pop_up/Pop_up'
 
+
+
 function App() {
   let menuRef:any = useRef()
   const ANY:any = null
@@ -67,6 +69,7 @@ function App() {
     //setEveryThree((c)=>c+1)
   }
 
+
   const togglePopUp = (close:string):void => {
 
     let ready:any = false
@@ -87,9 +90,9 @@ function App() {
 
   useEffect(()=>{
     setTimeout(()=>{
-        if(!open){setDisplay('block'); setBgDisplay('none')}
+        if(!open){setDisplay('none'); setBgDisplay('none')}
         else{setDisplay('block'); setBgDisplay('block')}
-      },500)
+      },1000)
   },[open])
 
   const MenuPackage = {
@@ -106,7 +109,7 @@ function App() {
 
   return (
     <div className='home_page' onScroll={closeMenu}>
-      <nav className="header">
+      <div className="header">
         <h3 className="ade">Ade</h3>
         <div style={{height: 50, zIndex: menuZIndex}} className="menu-sym" ref={myMenuRef}
           onClick={()=>{
@@ -115,7 +118,7 @@ function App() {
           }}
           onScroll={closeMenu}
         ></div>
-      </nav>
+      </div>
       <div className="menu-container" style={{display:display}}><Menu MenuPackage={MenuPackage}/></div>
       <div className="layover" onClick={closeMenu} style={{display:bgDisplay}}></div>
       <Section_1 popUpPackage={PopUpPackage}/>

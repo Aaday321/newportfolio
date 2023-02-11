@@ -30,16 +30,20 @@ function Pop_up({popUpPackage}:any) {
   const sendEmail = (e:any) => {
     e.preventDefault();
 
+    if(!name || !email || !message)return
+    
     const sendableData:any = {
        name: name,
        email: email,
        message: message
     }
-    console.log(sendableData)
+    //console.log(sendableData)
 
     emailjs.sendForm('service_3yoyjzf', 'template_n7ea30i', e.target, 'bN1FC9ACeIM2aZQL7')
       .then((result) => {
-          console.log(result.text);
+          //console.log(result.text);
+          setName(''); setEmail(''); setMessage('')
+          togglePopUp()
       }, (error) => {
           console.log(error.text);
       });
@@ -65,7 +69,7 @@ function Pop_up({popUpPackage}:any) {
           <input
             type="text"
             className="form-short"
-            placeholder='name'
+            placeholder='Name'
             value={name}
             name={'name'}
             onChange={(e)=>handleChange(e, 'name')}

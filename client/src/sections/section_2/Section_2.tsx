@@ -4,7 +4,7 @@ import New_User_sym from "../../assets/SVG_COMPS/New_User_sym";
 import Arrow_Cir_sym from "../../assets/SVG_COMPS/Arrow_Cir_sym";
 import Lock_sym from "../../assets/SVG_COMPS/Lock_sym";
 import X_Cir_sym from "../../assets/SVG_COMPS/X_Cir_sym";
-import "./Section2.css";
+//import "./Section2.css";
 import { APP_COLORS } from "../../assets/exportables";
 import { SERVER_ROUTE } from "../../assets/exportables";
 import axios from 'axios';
@@ -16,6 +16,7 @@ import deleteSound from '../../assets/deleteSound.wav';
 
 const ALREADY_SIGNED_IN = "You're already signed in"
 const NO_INPUT = 'Type in a username and password'
+const NO_INPUT_2 = 'Create a username and password'
 
 function Section_2() {
   const [display, setDisplay] = useState("flex");
@@ -81,7 +82,7 @@ function Section_2() {
       .then((r):void => {
         setUserData(r.data)
         setUserInput("")
-        new Audio(addSound).play()
+        //new Audio(addSound).play()
       })
       .catch((r):void =>console.log(r))
   }
@@ -93,7 +94,7 @@ function Section_2() {
       user: {username}
     })
       .then((r):void => {
-          new Audio(deleteSound).play()
+          //new Audio(deleteSound).play()
           setUserData(r.data)
       })
   }
@@ -108,7 +109,7 @@ function Section_2() {
       })
         .then((r):void =>logInProtocall(r))
         .catch((r):void =>setMessage(r.response.data))
-    }else{ setMessage(NO_INPUT); return }
+    }else{ setMessage(NO_INPUT_2); return }
   }
 
   const logIn = ():void => {
@@ -122,6 +123,10 @@ function Section_2() {
         .then((r):void =>logInProtocall(r))
         .catch((r):void =>setMessage(r?.response?.data))
     }else setMessage(NO_INPUT)
+  }
+
+  const enterSubmit = ():void => {
+
   }
 
   const logOut = ():void => {
@@ -152,7 +157,7 @@ function Section_2() {
           <>
             Authentication
             <br />
-            and autherization
+            & Authorization
           </>
         }
         sectionNumber={1}
@@ -167,7 +172,7 @@ function Section_2() {
             onClick={createNewUser}
           >
             <New_User_sym color='var(--BLACK)' />
-            Create user
+            Create User
           </button>
 
           <input
@@ -227,7 +232,7 @@ function Section_2() {
                       type="text"
                       onChange={(e):void=>handleChange(e, 'userInput')}
                       value={userInput}
-                      placeholder='Enter some text'
+                      placeholder='Enter text'
                     />
                     <div onClick={(e):void=>submitUserInput(e)}><Arrow_Cir_sym color='var(--WHITE)'/></div>
                 </div>

@@ -4,22 +4,47 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    transition: 2s;
+    transition: 1s;
+    padding-bottom: 4rem;
 }
 
 .extra-div{
     width:100%
 }
 
+.dark-toggle{
+    width: 200px;
+    height: fit-content;
+}
 
-.menu-btn:hover, .dark-toggle:hover{
+.menu-btn svg g:hover, .dark-toggle svg g:hover{
     cursor: pointer;
+}
+
+.lottie-div{
+    display: grid;
+    place-content: center;
 }
 
 .menu-btn{
     overflow: hidden;
-    height: 100px;
+}
+.menu-btn{
+    height: 300px;
+    width: 300px;
 }
 .menu-btn svg{
-    height: 400px;
+    height: 200px;
+    width: 200px;
+}
+@media  (max-width: 1000px){
+    .section-mogo{
+        flex-direction: column;
+    }
+    .dark-toggle{
+        width: 130px;
+    }
+    .menu-btn{
+        height: 200px;
+    }
 }

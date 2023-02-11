@@ -13,15 +13,14 @@ dotenv.config()
 
 const app = new express()
 const PORT = 4020
-const ATLAL_URL = `mongodb+srv://Ade-user-2:admin123@cluster0.oe5ybr1.mongodb.net/test`
-
+const ATLAL_URL = 'mongodb+srv://brendan:test123@cluster0.4k2myi6.mongodb.net/?retryWrites=true&w=majority'
 let listenForCommands = true
 
 const COMPAS_URL = `mongodb://127.0.0.1/portfolio`
-
+//int-change
 //mongo connection
 mongoose.Promise = global.Promise
-mongoose.connect(COMPAS_URL,
+mongoose.connect(ATLAL_URL,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true

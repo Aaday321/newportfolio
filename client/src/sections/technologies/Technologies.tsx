@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import SVG_HOLDER from './assets/Javascript'
-import './Tech.css'
+//import './Tech.css'
 import svg1 from './assets/tech_1.svg'
 import svg2 from './assets/tech_2.svg'
 import svg3 from './assets/tech_3.svg'

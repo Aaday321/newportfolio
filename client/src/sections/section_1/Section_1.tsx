@@ -19,17 +19,20 @@ function Section_1({popUpPackage}:any) {
 
   const BTN_TEXT: JSX.Element = (
     <>
-      Hollar at me
+      Holla' at me
       <Hand_sym color='white'/>
     </>
   );
 
   return (
     <section className="section-1" id="1">
-      <img style={{ width: 650 }} src={ade} alt="self portrait" />
+      <img style={{  }} src={ade} alt="self portrait" />
       <div className="sec-1-text-stack">
         <h1 className="main-text">
-          Software<br/>Engineer
+          Software
+        </h1>
+        <h1 id='eng' className="main-text">
+          Engineer
         </h1>
         <h2 className="row-2">Full-stack web developer</h2>
         <p className="row-3">{ROW3_TEXT}</p>

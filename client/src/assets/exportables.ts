@@ -18,4 +18,4 @@ export interface PopUpPackage {
     popOpen: boolean;
 }
 
-export const SERVER_ROUTE: string = 'http://localhost:4020/portfolio'
+export const SERVER_ROUTE: string = 'https://ade-portfolio-server.onrender.com/portfolio'
