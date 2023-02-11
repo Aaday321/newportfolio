@@ -20,13 +20,12 @@ function Menu({MenuPackage}:MENU_PROPS) {
 
   const myWork:Map<string,string> = new Map([
     ['Free Jac Nation','https://www.freejacnation.com/'],
-    ['Malover Troye','https://www.malovertroye.com/'],
     ['California TRANScends', 'https://www.catranscends.com/'],
     ['Queen Sheba','https://www.queenshebas.com/'],
     ['Experience M86','https://www.experiencem86.com/'],
   ])
 
-  const displayProjectList = (): Array<JSX.Element> =>{
+  const displayProjectList = (): Array<JSX.Element> => {
     let returnableArray: Array<JSX.Element> = new Array()
     let key: number = 0
     for(let i of myWork){
